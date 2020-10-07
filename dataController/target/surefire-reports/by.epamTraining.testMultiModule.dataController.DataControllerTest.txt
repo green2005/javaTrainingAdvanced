@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: by.epamTraining.testMultiModule.dataController.DataControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 sec
