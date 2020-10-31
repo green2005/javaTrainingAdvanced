@@ -17,11 +17,15 @@ public class JstlServlet1 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		List<User> users = UserService.getService().getUsers();
-
+		List<User> users = null;
+		try {
+			users = UserService.getService().getUsers();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
 		req.setAttribute("users", users);
 
-		getServletContext().getRequestDispatcher("/jstl1.jsp").forward(req, resp);
+		getServletContext().getRequestDispatcher("/userList.jsp").forward(req, resp);
 	}
 
 }

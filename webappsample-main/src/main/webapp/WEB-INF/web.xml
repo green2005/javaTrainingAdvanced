@@ -20,14 +20,37 @@
             <url-pattern>/*</url-pattern>
         </filter-mapping>
     -->
+
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>by.grodno.pvt.site.webappsample.ServletSample</servlet-class>
-        <init-param>
-            <param-name>env</param-name>
-            <param-value>Development</param-value>
-        </init-param>
+        <servlet-name>deps</servlet-name>
+        <servlet-class>by.grodno.pvt.site.webappsample.DepsServlet</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deps</servlet-name>
+        <url-pattern>/deps</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>depsdelete</servlet-name>
+        <servlet-class>by.grodno.pvt.site.webappsample.DepsDeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>depsdelete</servlet-name>
+        <url-pattern>/deps/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>depsedit</servlet-name>
+        <servlet-class>by.grodno.pvt.site.webappsample.DepsEditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>depsedit</servlet-name>
+        <url-pattern>/deps/edit</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
@@ -57,10 +80,6 @@
         <url-pattern>/user/edit</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Jstl1</servlet-name>

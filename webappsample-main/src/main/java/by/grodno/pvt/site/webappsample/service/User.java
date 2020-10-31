@@ -10,6 +10,9 @@ public class User {
     private String lastName;
     private Date birthdate;
     private boolean male;
+    private Double salary;
+    private Dept dept;
+
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public User(Integer id, String firstMame, String lastName, Date birthdate, boolean male) {
@@ -65,4 +68,20 @@ public class User {
         this.male = male;
     }
 
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 }
