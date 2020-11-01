@@ -43,6 +43,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>depsadd</servlet-name>
+        <servlet-class>by.grodno.pvt.site.webappsample.DeptsAddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>depsadd</servlet-name>
+        <url-pattern>/deps/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>depsedit</servlet-name>
         <servlet-class>by.grodno.pvt.site.webappsample.DepsEditServlet</servlet-class>
     </servlet>
@@ -58,15 +68,22 @@
     </servlet>
     <servlet>
         <servlet-name>Jstl1</servlet-name>
-        <servlet-class>by.grodno.pvt.site.webappsample.JstlServlet1</servlet-class>
+        <servlet-class>by.grodno.pvt.site.webappsample.UserListServlet</servlet-class>
     </servlet>
+
     <servlet>
-        <servlet-name>Jstl2</servlet-name>
-        <servlet-class>by.grodno.pvt.site.webappsample.JstlServlet2</servlet-class>
+        <servlet-name>userAdd</servlet-name>
+        <servlet-class>by.grodno.pvt.site.webappsample.UserAddServlet</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>userAdd</servlet-name>
+        <url-pattern>/user/add</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>Jstl3</servlet-name>
-        <servlet-class>by.grodno.pvt.site.webappsample.JstlServlet3</servlet-class>
+        <servlet-class>by.grodno.pvt.site.webappsample.UserDeleteServlet</servlet-class>
     </servlet>
 
     <servlet>
@@ -85,10 +102,7 @@
         <servlet-name>Jstl1</servlet-name>
         <url-pattern>/jstl1</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Jstl2</servlet-name>
-        <url-pattern>/user</url-pattern>
-    </servlet-mapping>
+
 
     <servlet-mapping>
         <servlet-name>Jstl3</servlet-name>

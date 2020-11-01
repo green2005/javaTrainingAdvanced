@@ -45,6 +45,7 @@
 
 	<br />
 	<br />
-
+	<a class="btn btn-primary"
+    		href="http://localhost:8080/webappsample/deps/add">Add department</a>
 </body>
 </html>

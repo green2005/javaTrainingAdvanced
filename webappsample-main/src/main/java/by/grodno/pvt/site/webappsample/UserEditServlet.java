@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
 public class UserEditServlet extends HttpServlet {
     private static final String USER_NO_PARAM = "number";
@@ -34,10 +31,18 @@ public class UserEditServlet extends HttpServlet {
             usr.setFirstName(req.getParameter("firstName"));
             usr.setLastName(req.getParameter("lastName"));
             usr.setMale("true".equals(req.getParameter("male")));
+            usr.setSalary(0.0);
+            String salary = req.getParameter("salary");
+            if ((salary != null) && (!"".equals(salary))) {
+                try {
+                    usr.setSalary(Double.parseDouble(salary));
+                } catch (NumberFormatException e) {
+                }
+            }
             String dept = req.getParameter("dept");
             try {
-                String s = req.getParameter("bday");
-                usr.setBirthdate(new SimpleDateFormat("yyy-MM-dd").parse(s));
+                String sbday = req.getParameter("bday");
+                usr.setBirthdate(new SimpleDateFormat("yyy-MM-dd").parse(sbday));
             } catch (ParseException e) {
                 //throw new ServletException(e.getMessage());
             }

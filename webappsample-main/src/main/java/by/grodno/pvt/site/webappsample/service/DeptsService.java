@@ -1,9 +1,6 @@
 package by.grodno.pvt.site.webappsample.service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +26,33 @@ public class DeptsService {
             statement.setInt(1, depId);
             statement.execute();
         }
+    }
+
+    public int addDept(Dept dept) throws Exception {
+        try (Connection connection = DBUtils.getConnection();
+             PreparedStatement stDeptByName = connection.prepareStatement(SQL.SQL_GET_DEPT_BY_NAME);
+             PreparedStatement stInsertDept = connection.prepareStatement(SQL.SQL_INSERT_DEPT, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement stUpdateDept = connection.prepareStatement(SQL.SQL_UPDATE_USER_DEPT)
+        ) {
+            stDeptByName.setString(1, dept.getName());
+            ResultSet depset = stDeptByName.executeQuery();
+            int depId = 0;
+            if (depset.next()) {
+                depId = depset.getInt("id");
+            }
+            depset.close();
+            if (depId == 0) {
+                stInsertDept.setString(1, dept.getName());
+                stInsertDept.executeUpdate();
+
+                try (ResultSet rs = stInsertDept.getGeneratedKeys();) {
+                    if (rs.next()) {
+                        return rs.getInt(1);
+                    }
+                }
+            }
+        }
+        return 0;
     }
 
     public void updateDept(String deptName, int deptId) {

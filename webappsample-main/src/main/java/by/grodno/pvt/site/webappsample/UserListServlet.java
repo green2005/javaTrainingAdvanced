@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import by.grodno.pvt.site.webappsample.service.User;
 import by.grodno.pvt.site.webappsample.service.UserService;
 
-public class JstlServlet1 extends HttpServlet {
+public class UserListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

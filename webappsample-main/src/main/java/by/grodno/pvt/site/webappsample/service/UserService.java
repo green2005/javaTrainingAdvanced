@@ -48,9 +48,9 @@ public class UserService {
         }
     }
 
-    public void addUser(User user) {
+    public void addUser(User user, String dept) {
         try (Connection connection = DBUtils.getConnection();
-             PreparedStatement statement = connection.prepareStatement(SQL.SQL_INSERT)
+             PreparedStatement statement = connection.prepareStatement(SQL.SQL_INSERT, Statement.RETURN_GENERATED_KEYS)
         ) {
             /*
             "INSERT INTO public.testTable "
@@ -64,7 +64,14 @@ public class UserService {
             statement.setBoolean(5,
                     user.isMale()
             );
-            statement.execute();
+            statement.executeUpdate();
+            ResultSet rs = statement.getGeneratedKeys();
+            if (rs.next()) {
+                user.setId(rs.getInt(1));
+
+            }
+            rs.close();
+            doUpdateUserDept(user, dept);
         } catch (Exception e) {
             LOGGER.error(e);
         }
